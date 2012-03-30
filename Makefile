@@ -31,7 +31,7 @@ test:
 		exit 1;\
 	fi
 	@mkdir -p ${PROJECT_ROOT}/${PROJECT_NAME}/Resources/test/
-	@echo "sampleapp.tests_enabled = true;" > ${PROJECT_ROOT}/${PROJECT_NAME}/Resources/test/enabled.js
+	@echo "var tests_enabled = true;" > ${PROJECT_ROOT}/${PROJECT_NAME}/Resources/test/enabled.js
 	@make launch-titanium
 
 clean:

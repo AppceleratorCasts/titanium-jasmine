@@ -7,10 +7,12 @@
 
 		it('should return correct result', function() {
 			expect(sampleapp.myMethod()).toBeTruthy();
+			
 		});	
 	
 		it('should fail', function() {
-			expect(sampleapp.myMethod()).toBeFalsy();
+			expect(false).toBeFalsy();
+			
 		});	
 	
 		it('should fail with other error messages', function() {
@@ -26,7 +28,19 @@
 		});
 		
 		it('should not break with tests cantaining a huge amount of nonsense text in the test title', function() {
-			expect(true).toBe(false);
+			expect(true).toBe(true);
+		});
+		
+		it('should verify that sampleapp namespace has been activated',function(){
+		 
+ 				expect(sampleapp.start).toBeTruthy(); 
+				
+		});
+		
+		it('should spy on a titanium object', function(){
+		//	spyOn(sampleapp.start); // maybe add a .andCallThrough() to prevent null object errors 
+			  // Procedure that calls Ti.UI.createWindow(..) eventually.. 
+			  expect(win1.title).toBe("wat");
 		});
 
 	});

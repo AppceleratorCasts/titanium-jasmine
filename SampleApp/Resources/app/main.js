@@ -1,10 +1,4 @@
-var sampleapp = {
-	tests_enabled: false // default configuration, can be overridden by test/enabled.js
-};
-
-(function(){
-	
-	sampleapp.start = function() {
+ 
 		// this sets the background color of the master UIView (when there are no windows/tab groups on it)
 		Titanium.UI.setBackgroundColor('#000');
 
@@ -55,19 +49,16 @@ var sampleapp = {
 		tabGroup.addTab(tab1);  
 		tabGroup.addTab(tab2);  
 		
-		if (!sampleapp.tests_enabled) {
-			// open tab group
+		var tests_enabled = false; // this is a zero out function
+		Ti.include('/test/enabled.js');
+		
+		if (tests_enabled) {
+			Ti.include('/test/tests.js');
+			}else{
+				// open tab group
 			tabGroup.open();
 		}
-	};
 	
-	sampleapp.myMethod = function() {
-		return true;
-	};
 	
-})();
+	 
 
-Ti.include(
-	'/test/enabled.js',
-	'/test/tests.js'
-);
